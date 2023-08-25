@@ -1,0 +1,68 @@
+﻿@model List<ResultBookingDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayoutController1/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-title">
+                        <h4>Rezervasyonlar</h4>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>İsim</th>
+                                    <th>Mail</th>
+                                    <th>Giriş</th>
+                                    <th>Çıkış</th>
+                                    <th>Yetişkin Sayısı</th>
+                                    <th>Çocuk Sayısı</th>
+                                    <th>Oda Sayısı</th>
+                                    <th>Özel istek</th>
+                                    <th>Status</th>
+                                    <th>İşlemler</th>
+                                    <th>Açıklama</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    
+                                <tr>
+                                    <th>@item.Id</th>
+                                    <td>@item.Name</td>
+                                    <td>@item.Mail</td>
+                                    <td>@item.Checkin</td>
+                                    <td>@item.Checkout</td>
+                                    <td>@item.AdultCount</td>
+                                    <td>@item.ChildCount</td>
+                                    <td>@item.RoomCount</td>
+                                    <td>@item.SpecialRequest</td>
+                                    <td>
+                                        <span class="badge badge-primary px-2">@item.Status</span>
+                                    </td>
+                                    <td>
+                                            <a href="/BookingAdmin/ApprovedReservation/@item.Id"> <span class="badge badge-success px-2">Onayla</span></a>
+                                            <a href="/BookingAdmin/EditBooking/@item.Id"> <span class="badge badge-warning px-2">Güncelle</span></a>
+                                            <a href="/Index"> <span class="badge badge-info px-2">Detaylar</span></a>
+                                            <a href="/BookingAdmin/DeleteStaff/@item.Id"> <span class="badge badge-danger px-2">İptal Et</span></a>
+                                    </td>
+                                    <td>@item.Description</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+     
+                    </div>
+                </div>
+            

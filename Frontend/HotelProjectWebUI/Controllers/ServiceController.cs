@@ -54,6 +54,11 @@ namespace HotelProjectWebUI.Controllers
 
         public async Task<IActionResult> AddorEditService(CreateServiceDto addServiceViewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
             var client = httpClientFactory.CreateClient();
             var jsondata = JsonConvert.SerializeObject(addServiceViewModel);
             StringContent content = new StringContent(jsondata, Encoding.UTF8, "application/json");

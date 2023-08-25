@@ -31,6 +31,7 @@ namespace HotelProjectBusinessLayer.Concrete
         public async Task<List<Room>> GetList()
         {
             return await _roomDal.GetList();
+            
         }
 
         public async Task Insert(Room t)
